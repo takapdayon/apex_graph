@@ -1,6 +1,10 @@
 <template>
-  <div class="app">
-    <apexcharts width="550" type="bar" :options="chartOptions" :series="series"></apexcharts>
+  <div class="charts">
+    <apexcharts
+      type="line"
+      :options="chartOptions"
+      :series="series">
+    </apexcharts>
     <div>
       <button @click="updateChart">Update!</button>
   </div>
@@ -54,6 +58,10 @@ export default {
     color: '#fff';
     padding: 10px;
     margin-left: 28px;
+  }
+  .charts {
+    max-width: 900px;
+    margin: 35px auto;
   }
 </style>
 
