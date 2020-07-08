@@ -1,58 +1,65 @@
 <template>
+  <div>
     <v-app-bar
-        app
-        color="primary"
-        dark
+      color="deep-purple accent-4"
+      dark
     >
-        <div class="d-flex align-center">
-        <v-img
-            alt="Vuetify Logo"
-            class="shrink mr-2"
-            contain
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-            transition="scale-transition"
-            width="40"
-        />
+      <v-toolbar-title>Page title</v-toolbar-title>
 
-        <v-img
-            alt="Vuetify Name"
-            class="shrink mt-1 hidden-sm-and-down"
-            contain
-            min-width="100"
-            src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-            width="100"
-        />
-        </div>
-
-        <v-spacer></v-spacer>
-        <div class="overbutton">
-            <OverFlowButton />
-        </div>
-        <v-spacer></v-spacer>
-
-        <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-        >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-        </v-btn>
+      <v-spacer></v-spacer>
+        <v-container class="overbuttons">
+            <v-row>
+                <v-col class="column"
+                    cols="12"
+                    md="3"
+                >
+                    <v-select
+                    :items="items"
+                    label="platform"
+                    dense
+                    hide-details
+                    outlined
+                    height="10"
+                    ></v-select>
+                </v-col>
+                <v-col class="column"
+                    cols="12"
+                    md="9"
+                >
+                    <v-text-field
+                    v-model="search"
+                    clearable
+                    flat
+                    solo-inverted
+                    hide-details
+                    prepend-inner-icon="fas fa-search"
+                    label="Search"
+                    ></v-text-field>
+                </v-col>
+            </v-row>
+        </v-container>
+      <v-spacer></v-spacer>
     </v-app-bar>
+  </div>
 </template>
 
 <script>
-import OverFlowButton from './OverFlowButton'
 export default {
     name: 'Header',
-    components: {
-        OverFlowButton,
-    }
+    data: () => ({
+      items: ['psn', 'xbox', 'origin'],
+    }),
 }
 </script>
 
-<style>
-.overbutton {
-    width: 400px;
+<style scoped>
+.overbuttons {
+    width: 700px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.column {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 </style>

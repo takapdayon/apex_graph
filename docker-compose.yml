@@ -1,0 +1,16 @@
+version: "3"
+services:
+        web:
+                build:
+                        context: .
+                        args:
+                                GIT_EMAIL: $GIT_EMAIL
+                                GIT_NAME: $GIT_NAME
+                ports:
+                 - "15000:8080"
+                user: "0:0"
+                volumes:
+                 - ./app:/app
+                stdin_open: true
+                tty: true
+                restart: always
