@@ -8,7 +8,7 @@
       flat
       tile
     >
-      <v-card-title class="teal">
+      <v-card-title class="blue-grey darken-3">
 
         <v-spacer></v-spacer>
 
