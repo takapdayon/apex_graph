@@ -5,9 +5,10 @@
       :options="chartOptions"
       :series="series">
     </apexcharts>
+    <!--
     <div>
       <button @click="updateChart">Update!</button>
-  </div>
+  </div>-->
   </div>
 </template>
 
@@ -26,42 +27,41 @@ export default {
             id: 'vuechart-example',
           },
           xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+            categories: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          },
+          stroke: {
+            width: 3,
+          },
+          markers: {
+            size: 4,
+            colors: ["#FFA41B"],
+            strokeColors: "#fff",
+            strokeWidth: 2,
+            hover: {
+              size: 7,
+            }
+          },
+          legend: {
+            onItemHover: {
+              highlightDataSeries: true
+            },
           },
         },
         series: [{
           name: 'series-1',
           data: [30, 40, 45, 50, 49, 60, 70, 81, 91]
-        }]
+        },
+        {
+          name: 'series-1',
+          data: [90, 20, 12, 58, 12, 60, 60, 21, 11]
+        }],
       }
     },
-    methods: {
-      updateChart() {
-        const max = 90;
-        const min = 20;
-        const newData = this.series[0].data.map(() => {
-          return Math.floor(Math.random() * (max - min + 1)) + min
-        })
-        // In the same way, update the series option
-        this.series = [{
-          data: newData
-        }]
-      }
-    }
-}
+  }
 </script>
 <style scoped>
-  button {
-    background: #26E6A4;
-    border: 0;
-    font-size: 16px;
-    color: '#fff';
-    padding: 10px;
-    margin-left: 28px;
-  }
   .charts {
     max-width: 900px;
     margin: 35px auto;
   }
 </style>
-
