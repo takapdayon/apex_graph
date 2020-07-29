@@ -1,7 +1,12 @@
 <template>
   <div>
+    <!--
     <v-app-bar
       color="deep-purple accent-4"
+      dark
+    >-->
+    <v-app-bar
+      color=#42b983;
       dark
     >
       <v-toolbar-title>Page title</v-toolbar-title>
