@@ -31,10 +31,9 @@
   export default {
     data: () => ({
       icons: [
-        'mdi-facebook',
+        'fa-blog',
         'mdi-twitter',
-        'mdi-linkedin',
-        'mdi-instagram',
+        'fa-question-circle'
       ],
     }),
   }
