@@ -4,8 +4,9 @@
       color="green darken-1"
       dark
       flat
+      clipped-left
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="showDrawer" />
       <v-spacer></v-spacer>
 
       <v-toolbar-title>Page title</v-toolbar-title>
@@ -17,6 +18,11 @@
 <script>
 export default {
     name: 'Header',
+    methods: {
+      showDrawer: function() {
+        this.$emit('changeDrawerShow')
+      }
+    }
 }
 </script>
 

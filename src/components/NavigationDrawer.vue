@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model="drawer">
+    <v-navigation-drawer app clipped v-model="drawer">
       <v-list-item>
         <v-list-item-title class="title">
           Application
         </v-list-item-title>
-        <v-btn icon>
+        <v-btn icon @click="closeDrawer">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
       </v-list-item>
@@ -21,29 +21,24 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar app>
-      <!-- アプリケーションバー -->
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    </v-app-bar>
-
-    <v-footer app>
-      <!-- フッター -->
-    </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
   name: 'App',
+  props: ['drawer'],
   data: () => ({
-    drawer: false,
     menus: [
-      { title: 'Index', icon: 'mdi-web', url: '/' },
-      { title: 'Home', icon: 'mdi-home', url: '/home' },
-      { title: 'Favorites', icon: 'mdi-heart', url: '/favorites' },
-      { title: 'About', icon: 'mdi-information-variant', url: '/about' }
+      { title: 'Home', icon: 'mdi-home', url: '/' },
+      { title: 'Graph', icon: 'mdi-web', url: '/graph' },
+      { title: 'Users', icon: 'mdi-heart', url: '/users' },
     ]
-  })
+  }),
+  methods: {
+    closeDrawer: function() {
+      this.$emit('changeDrawerShow')
+    }
+  }
 }
 </script>

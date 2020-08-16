@@ -1,10 +1,15 @@
 <template>
   <v-app>
-    <Header />
+    <Header
+    @changeDrawerShow="changeDrawerShow"
+    />
     <v-content>
       <router-view />
     </v-content>
-    <Drawer />
+    <Drawer
+    :drawer="drawer"
+    @changeDrawerShow="changeDrawerShow"
+    />
     <Footer />
   </v-app>
 </template>
@@ -24,8 +29,14 @@ export default {
   },
 
   data: () => ({
-    //
+    drawer: false
   }),
+
+  methods: {
+    changeDrawerShow: function() {
+      this.drawer = !this.drawer
+    }
+  }
 };
 </script>
 
