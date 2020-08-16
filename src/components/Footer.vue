@@ -33,7 +33,7 @@
       icons: [
         'fa-blog',
         'mdi-twitter',
-        'fa-question-circle'
+        'fa-github'
       ],
     }),
   }
