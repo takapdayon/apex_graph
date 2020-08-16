@@ -11,7 +11,6 @@
       <v-card-title class="blue-grey darken-3">
 
         <v-spacer></v-spacer>
-
         <v-btn
           v-for="icon in icons"
           :key="icon"
@@ -31,9 +30,9 @@
   export default {
     data: () => ({
       icons: [
-        'fa-blog',
+        'fas fa-blog',
         'mdi-twitter',
-        'fa-github'
+        'fab fa-github',
       ],
     }),
   }
