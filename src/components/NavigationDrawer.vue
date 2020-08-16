@@ -1,59 +1,49 @@
 <template>
-  <div class="ma-12 pa-12">
-    <template>
-      <v-card>
-        <v-navigation-drawer
-          permanent
-          expand-on-hover
-        >
-          <v-list>
-            <v-list-item class="px-2">
-              <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
-              </v-list-item-avatar>
-            </v-list-item>
+  <v-app>
+    <v-navigation-drawer app v-model="drawer">
+      <v-list-item>
+        <v-list-item-title class="title">
+          Application
+        </v-list-item-title>
+        <v-btn icon>
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn>
+      </v-list-item>
+      <v-divider />
+      <v-list nav>
+        <v-list-item v-for="menu in menus" :key="menu.title" :to="menu.url">
+          <v-list-item-icon>
+            <v-icon>{{ menu.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ menu.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-            <v-list-item link>
-              <v-list-item-content>
-                <v-list-item-title class="title">Sandra Adams</v-list-item-title>
-                <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
+    <v-app-bar app>
+      <!-- アプリケーションバー -->
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    </v-app-bar>
 
-          <v-divider></v-divider>
-
-          <v-list
-            nav
-            dense
-          >
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-folder</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>My Files</v-list-item-title>
-            </v-list-item>
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-account-multiple</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Shared with me</v-list-item-title>
-            </v-list-item>
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-star</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Starred</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-navigation-drawer>
-      </v-card>
-    </template>
-  </div>
+    <v-footer app>
+      <!-- フッター -->
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-  export default {
-    //
-  }
+export default {
+  name: 'App',
+  data: () => ({
+    drawer: false,
+    menus: [
+      { title: 'Index', icon: 'mdi-web', url: '/' },
+      { title: 'Home', icon: 'mdi-home', url: '/home' },
+      { title: 'Favorites', icon: 'mdi-heart', url: '/favorites' },
+      { title: 'About', icon: 'mdi-information-variant', url: '/about' }
+    ]
+  })
+}
 </script>
