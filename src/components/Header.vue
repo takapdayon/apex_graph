@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-app-bar
+    <v-app-bar app
       color="green darken-1"
       dark
       flat
-      clipped-left
+
     >
       <v-app-bar-nav-icon @click="showDrawer" />
       <v-spacer></v-spacer>
