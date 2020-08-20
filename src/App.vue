@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Header
+    :drawer="drawer"
     @changeDrawerShow="changeDrawerShow"
     />
     <v-content>
