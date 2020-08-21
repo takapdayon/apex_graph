@@ -6,14 +6,15 @@
       hide-default-footer
     >
       <template v-slot:header>
-        <v-toolbar
-          class="mb-2"
-          color="indigo darken-5"
-          dark
-          flat
-        >
-          <v-toolbar-title>This is a header</v-toolbar-title>
-        </v-toolbar>
+        <v-row align="left">
+          <v-col cols="12">
+            <v-select
+              :items="getPlatForm()"
+              label="Platform"
+              outlined
+            ></v-select>
+          </v-col>
+        </v-row>
       </template>
 
       <template v-slot:default="props">
@@ -28,7 +29,6 @@
           >
             <v-card>
               <v-card-title class="subheading font-weight-bold">{{ item.name }}</v-card-title>
-
               <v-divider></v-divider>
 
               <v-list>
@@ -87,9 +87,17 @@
       ],
     }),
     methods: {
-        deleteUser: function(user) {
-            console.log(user)
+      deleteUser: function(user) {
+          console.log(user)
+      },
+      getPlatForm: function() {
+        const platforms = []
+        for (const item of this.items) {
+          platforms.push(item.name)
         }
+        console.log(platforms)
+        return platforms
+      }
     }
   }
 </script>
