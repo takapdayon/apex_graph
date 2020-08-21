@@ -6,13 +6,30 @@
       hide-default-footer
     >
       <template v-slot:header>
-        <v-row align="left">
-          <v-col cols="12">
+        <v-row>
+          <v-col cols="12" sm="1">
             <v-select
               :items="getPlatForm()"
               label="Platform"
               outlined
             ></v-select>
+          </v-col>
+          <v-col cols="12" sm="2">
+              <v-text-field
+              label="Player Name"
+              outline
+              ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="1">
+            <v-btn
+              :loading="loading3"
+              :disabled="loading3"
+              color="blue-grey"
+              class="ma-2 white--text"
+            >
+              追加
+              <v-icon right dark>mdi-cloud-upload</v-icon>
+            </v-btn>
           </v-col>
         </v-row>
       </template>
@@ -95,7 +112,6 @@
         for (const item of this.items) {
           platforms.push(item.name)
         }
-        console.log(platforms)
         return platforms
       }
     }
