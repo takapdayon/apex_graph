@@ -1,36 +1,44 @@
 <template>
   <v-app>
-    <Header />
+    <Header
+    @changeDrawerShow="changeDrawerShow"
+    />
     <v-content>
-      <Graph class="aa"/>
+      <router-view />
     </v-content>
+    <Drawer
+    :drawer="drawer"
+    @changeDrawerShow="changeDrawerShow"
+    />
     <Footer />
   </v-app>
 </template>
 
 <script>
-import Graph from './components/Graph';
 import Header from './components/Header';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import Drawer from './components/NavigationDrawer';
 
 export default {
   name: 'App',
 
   components: {
-    Graph,
     Header,
     Footer,
+    Drawer,
   },
 
   data: () => ({
-    //
+    drawer: false
   }),
+
+  methods: {
+    changeDrawerShow: function() {
+      this.drawer = !this.drawer
+    }
+  }
 };
 </script>
 
 <style scoped>
-.aa {
-  text-align: center;
-}
-
 </style>

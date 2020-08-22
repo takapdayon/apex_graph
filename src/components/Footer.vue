@@ -1,7 +1,8 @@
 <template>
-  <v-footer
+  <v-footer app
     dark
     padless
+    inset
   >
     <v-card
       class="flex"
@@ -11,7 +12,6 @@
       <v-card-title class="blue-grey darken-3">
 
         <v-spacer></v-spacer>
-
         <v-btn
           v-for="icon in icons"
           :key="icon"
@@ -31,10 +31,9 @@
   export default {
     data: () => ({
       icons: [
-        'mdi-facebook',
+        'fas fa-blog',
         'mdi-twitter',
-        'mdi-linkedin',
-        'mdi-instagram',
+        'fab fa-github',
       ],
     }),
   }
