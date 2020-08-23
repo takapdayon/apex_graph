@@ -30,9 +30,9 @@ export default {
   props: ['drawer'],
   data: () => ({
     menus: [
-      { title: 'Home', icon: 'mdi-home', url: '/' },
-      { title: 'Graph', icon: 'mdi-web', url: '/graph' },
-      { title: 'Users', icon: 'mdi-heart', url: '/users' },
+      { title: 'About', icon: 'fas fa-home', url: '/' },
+      { title: 'Graph', icon: 'fas fa-chart-line', url: '/graph' },
+      { title: 'Users', icon: 'fas fa-users', url: '/users' },
     ]
   }),
   methods: {
